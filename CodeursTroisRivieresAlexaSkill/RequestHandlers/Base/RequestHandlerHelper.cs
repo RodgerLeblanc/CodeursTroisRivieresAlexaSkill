@@ -16,6 +16,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         private const string CancelIntentName = "AMAZON.CancelIntent";
         private const string HelpIntentName = "AMAZON.HelpIntent";
         private const string StopIntentName = "AMAZON.StopIntent";
+        private const string FallbackIntentName = "AMAZON.FallbackIntent";
 
         public static IRequestHandler GetFromRequest(Request request)
         {
@@ -39,6 +40,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
                     return new LastMeetupRequestHandler(intentRequest);
 
                 case NextMeetupIntentName:
+                case FallbackIntentName:
                     return new NextMeetupRequestHandler(intentRequest);
 
                 case CancelIntentName:
