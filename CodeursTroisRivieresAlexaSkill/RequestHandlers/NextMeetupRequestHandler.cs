@@ -24,6 +24,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
             var request = GetRequest(_resource);
 
             request.AddQueryParameter("status", "upcoming");
+            request.AddQueryParameter("scroll", "next_upcoming");
             request.AddQueryParameter("page", "1");
 
             List<MeetupEvent> events = await Client.GetAsync<List<MeetupEvent>>(request);
