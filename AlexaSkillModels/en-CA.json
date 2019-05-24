@@ -1,0 +1,49 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "codeurs trois rivieres",
+            "intents": [{
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "NextMeetupIntent",
+                    "slots": [],
+                    "samples": [
+                        "what is the topic for next event",
+                        "when is the next conference",
+                        "when is the next event",
+                        "when is the next meetup"
+                    ]
+                },
+                {
+                    "name": "LastMeetupIntent",
+                    "slots": [],
+                    "samples": [
+                        "what was the topic for previous event",
+                        "when was the last conference",
+                        "when was the previous event",
+                        "when was the last meetup"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
