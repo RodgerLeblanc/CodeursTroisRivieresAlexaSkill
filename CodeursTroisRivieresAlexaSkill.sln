@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeursTroisRivieresAlexaSkill", "CodeursTroisRivieresAlexaSkill\CodeursTroisRivieresAlexaSkill.csproj", "{08CF357A-EB04-40F5-967D-47D034CB2B4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeursTroisRivieresAlexaSkill", "CodeursTroisRivieresAlexaSkill\CodeursTroisRivieresAlexaSkill.csproj", "{08CF357A-EB04-40F5-967D-47D034CB2B4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CellNinja.Localization", "CellNinja.Localization\CellNinja.Localization.csproj", "{BE40F81D-55FC-401E-983B-B1D58995CAAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{08CF357A-EB04-40F5-967D-47D034CB2B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08CF357A-EB04-40F5-967D-47D034CB2B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08CF357A-EB04-40F5-967D-47D034CB2B4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE40F81D-55FC-401E-983B-B1D58995CAAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE40F81D-55FC-401E-983B-B1D58995CAAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE40F81D-55FC-401E-983B-B1D58995CAAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE40F81D-55FC-401E-983B-B1D58995CAAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

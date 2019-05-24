@@ -1,6 +1,7 @@
 ﻿using Alexa.NET;
 using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
+using CellNinja.Localization.Resources;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -16,7 +17,9 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             await Task.CompletedTask;
 
-            SkillResponse response = ResponseBuilder.Ask("Annulation en cours.", RequestHandlerHelper.GetDefaultReprompt());
+            string speechText = Translate.Get(nameof(Translations.HelpText), Request.Locale);
+            SkillResponse response = ResponseBuilder.Ask(speechText, RequestHandlerHelper.GetDefaultReprompt(Request.Locale));
+
             return new OkObjectResult(response);
         }
     }

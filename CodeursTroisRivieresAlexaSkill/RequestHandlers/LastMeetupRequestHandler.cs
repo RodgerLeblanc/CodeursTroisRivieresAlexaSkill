@@ -1,11 +1,11 @@
 ﻿using Alexa.NET;
 using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
+using CellNinja.Localization.Resources;
 using CodeursTroisRivieresAlexaSkill.Models;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -37,24 +37,26 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             if (events == null || !events.Any(e => e != null))
             {
-                return ResponseBuilder.Ask(
-                    "Quelque chose cloche, je n'ai trouvé aucun Meetup antérieur.",
-                    RequestHandlerHelper.GetDefaultReprompt());
+                string speechText = Translate.Get(nameof(Translations.NoPastEvent), Request.Locale);
+                return ResponseBuilder.Tell(speechText);
             }
 
-            MeetupEvent nextEvent = events.First();
-            string speechResponse = GetSpeechResponse(nextEvent);
+            MeetupEvent lastEvent = events.First();
 
-            return ResponseBuilder.Ask(speechResponse, RequestHandlerHelper.GetDefaultReprompt());
+            IOutputSpeech speechResponse = GetSpeechResponse(lastEvent);
+
+            return ResponseBuilder.Tell(speechResponse);
         }
 
-        private string GetSpeechResponse(MeetupEvent nextEvent)
+        private IOutputSpeech GetSpeechResponse(MeetupEvent lastEvent)
         {
-            string formattedDate = nextEvent.LocalDate.ToString("dddd dd MMMM", CultureInfo.CreateSpecificCulture("fr-CA"));
+            string formattedDate = GetFormattedDate(lastEvent.LocalDate);
+            string formattedTime = GetFormattedTime(lastEvent.Time);
 
-            return $"Le dernier Meetup a eu lieu le {formattedDate} " +
-                $"à {nextEvent.LocalTime}, " +
-                $"le sujet était {nextEvent.Name}.";
+            string speechText = Translate.Get(nameof(Translations.LastEvent), Request.Locale);
+            string text = string.Format(speechText, formattedDate, formattedTime, lastEvent.Name);
+
+            return new SsmlOutputSpeech { Ssml = $"<speak>{text}</speak>" };
         }
     }
 }

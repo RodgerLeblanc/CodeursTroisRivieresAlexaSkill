@@ -1,6 +1,7 @@
 ﻿using Alexa.NET;
 using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
+using CellNinja.Localization.Resources;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -16,9 +17,9 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             await Task.CompletedTask;
 
-            string speechText = "Bienvenue dans le skill Alexa de Codeurs Trois-Rivières, que puis-je faire pour vous?";
+            string speechText = Translate.Get(nameof(Translations.Welcome), Request.Locale);
 
-            SkillResponse response = ResponseBuilder.Ask(speechText, RequestHandlerHelper.GetDefaultReprompt());
+            SkillResponse response = ResponseBuilder.Ask(speechText, RequestHandlerHelper.GetDefaultReprompt(Request.Locale));
             return new OkObjectResult(response);
         }
     }
