@@ -1,0 +1,56 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "codeurs trois rivières",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "NextMeetupIntent",
+                    "slots": [],
+                    "samples": [
+                        "quel est le sujet de la prochaine conférence",
+                        "quel est le sujet du prochain événement",
+                        "quel est le sujet du prochain meetup",
+                        "quel est le sujet de la prochaine rencontre",
+                        "quand aura lieu le prochain meetup",
+                        "prochaine rencontre",
+                        "prochain événement",
+                        "prochaine conférence",
+                        "prochain meetup"
+                    ]
+                },
+                {
+                    "name": "LastMeetupIntent",
+                    "slots": [],
+                    "samples": [
+                        "quel était le sujet de la dernière conférence",
+                        "quel était le sujet du dernier événement",
+                        "quel était le sujet de la dernière rencontre",
+                        "quand a eu lieu le dernier meetup",
+                        "précédente",
+                        "dernière rencontre",
+                        "dernier événement",
+                        "dernière conférence",
+                        "dernier meetup"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
