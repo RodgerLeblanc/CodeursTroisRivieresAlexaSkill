@@ -1,7 +1,6 @@
 ﻿using Alexa.NET;
 using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
-using CellNinja.Localization.Resources;
 using CodeursTroisRivieresAlexaSkill.Models;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
@@ -37,7 +36,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             if (events == null || !events.Any(e => e != null))
             {
-                string speechText = Translate.Get(nameof(Translations.NoPastEvent), Request.Locale);
+                string speechText = "Quelque chose cloche, je n'ai trouvé aucun événement antérieur.";
                 return ResponseBuilder.Tell(speechText);
             }
 
@@ -53,7 +52,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
             string formattedDate = GetFormattedDate(lastEvent.LocalDate);
             string formattedTime = GetFormattedTime(lastEvent.Time);
 
-            string speechText = Translate.Get(nameof(Translations.LastEvent), Request.Locale);
+            string speechText = "Le dernier événement a eu lieu le {0} à {1}, le sujet était {2}.";
             string text = string.Format(speechText, formattedDate, formattedTime, lastEvent.Name);
 
             return new SsmlOutputSpeech { Ssml = $"<speak>{text}</speak>" };

@@ -1,8 +1,6 @@
 using Alexa.NET;
 using Alexa.NET.Request;
 using Alexa.NET.Response;
-using CellNinja.Localization;
-using CellNinja.Localization.Resources;
 using CodeursTroisRivieresAlexaSkill.RequestHandlers;
 using CodeursTroisRivieresAlexaSkill.SkillHandlers;
 using Microsoft.AspNetCore.Http;
@@ -17,23 +15,14 @@ namespace CodeursTroisRivieresAlexaSkill
 {
     public static class CodeursTroisRivieres
     {
-        static CodeursTroisRivieres()
-        {
-            DependencyInjection.RegisterSingleton<ITranslateResource, TranslateResource>();
-            DependencyInjection.Verify();
-        }
-
         [FunctionName(nameof(CodeursTroisRivieres))]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest request,
             ILogger log)
         {
-            string locale = Translate.DefaultLocale;
-
             try
             {
                 SkillRequest skillRequest = await GetSkillRequestFromRequest(request);
-                locale = skillRequest.Request.Locale;
 
                 bool isValid = await RequestHandlerHelper.ValidateRequest(request, log, skillRequest);
                 if (!isValid)
@@ -48,9 +37,9 @@ namespace CodeursTroisRivieresAlexaSkill
             {
                 log.LogError(e.Message);
 
-                string speechText = Translate.Get(nameof(Translations.Error_CanYouRepeat), locale);
+                string speechText = "Pouvez-vous répéter, j'ai mal compris.";
 
-                SkillResponse response = ResponseBuilder.Ask(speechText, RequestHandlerHelper.GetDefaultReprompt(locale));
+                SkillResponse response = ResponseBuilder.Ask(speechText, RequestHandlerHelper.GetDefaultReprompt());
                 return new OkObjectResult(response);
             }
         }

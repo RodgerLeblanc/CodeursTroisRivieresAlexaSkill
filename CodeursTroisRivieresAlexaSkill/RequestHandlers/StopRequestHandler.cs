@@ -1,7 +1,6 @@
 ﻿using Alexa.NET;
 using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
-using CellNinja.Localization.Resources;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -17,7 +16,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             await Task.CompletedTask;
 
-            string speechText = Translate.Get(nameof(Translations.Goodbye), Request.Locale);
+            string speechText = "Au revoir";
             SkillResponse response = ResponseBuilder.Tell(speechText);
             return new OkObjectResult(response);
         }

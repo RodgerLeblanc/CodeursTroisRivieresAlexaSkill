@@ -1,7 +1,6 @@
 ﻿using Alexa.NET;
 using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
-using CellNinja.Localization.Resources;
 using CodeursTroisRivieresAlexaSkill.Models;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
@@ -37,7 +36,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             if (events == null || !events.Any(e => e != null))
             {
-                string speechText = Translate.Get(nameof(Translations.NoFutureEvent), Request.Locale);
+                string speechText = "Il n'y a présentement pas de prochain événement annoncé.";
                 return ResponseBuilder.Tell(speechText);
             }
 
@@ -53,7 +52,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
             string formattedDate = GetFormattedDate(nextEvent.LocalDate);
             string formattedTime = GetFormattedTime(nextEvent.Time);
 
-            string speechText = Translate.Get(nameof(Translations.NextEvent), Request.Locale);
+            string speechText = "Le prochain événement aura lieu le {0} à {1}, le sujet est {2}.";
             string text = string.Format(speechText, formattedDate, formattedTime, nextEvent.Name);
 
             return new SsmlOutputSpeech { Ssml = $"<speak>{text}</speak>" };

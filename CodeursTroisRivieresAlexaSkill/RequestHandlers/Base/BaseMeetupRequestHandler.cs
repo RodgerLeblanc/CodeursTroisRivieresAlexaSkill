@@ -1,5 +1,4 @@
 ﻿using Alexa.NET.Request.Type;
-using CellNinja.Localization.Resources;
 using RestSharp;
 using System;
 
@@ -34,7 +33,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         protected string GetFormattedTime(long msSinceEpoch)
         {
             DateTime time = GetEasternTimeFromEpoch(msSinceEpoch);
-            string timeFormat = Translate.Get(nameof(Translations.TimeFormat), Request.Locale);
+            string timeFormat = "H:mm";
             return time.ToString(timeFormat);
         }
 

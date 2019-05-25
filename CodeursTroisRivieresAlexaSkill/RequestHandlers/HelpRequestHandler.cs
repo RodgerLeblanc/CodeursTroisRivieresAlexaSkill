@@ -1,7 +1,6 @@
 ﻿using Alexa.NET;
 using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
-using CellNinja.Localization.Resources;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -17,8 +16,8 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             await Task.CompletedTask;
 
-            string speechText = Translate.Get(nameof(Translations.HelpText), Request.Locale);
-            SkillResponse response = ResponseBuilder.Ask(speechText, RequestHandlerHelper.GetDefaultReprompt(Request.Locale));
+            string speechText = "Vous pouvez demander : Quand est le prochain meetup, quel est le sujet de la prochaine rencontre, quel était le dernier événement. Que puis-je faire pour vous?";
+            SkillResponse response = ResponseBuilder.Ask(speechText, RequestHandlerHelper.GetDefaultReprompt());
 
             return new OkObjectResult(response);
         }

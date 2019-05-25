@@ -1,7 +1,6 @@
 ﻿using Alexa.NET.Request;
 using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
-using CellNinja.Localization.Resources;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
@@ -58,9 +57,9 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
             }
         }
 
-        public static Reprompt GetDefaultReprompt(string locale)
+        public static Reprompt GetDefaultReprompt()
         {
-            string repromptText = Translate.Get(nameof(Translations.RepromptText), locale);
+            string repromptText = "Vous pouvez demander : Quand est le prochain meetup, quel est le sujet de la prochaine rencontre, quel était le dernier événement.";
 
             return new Reprompt(repromptText);
         }
