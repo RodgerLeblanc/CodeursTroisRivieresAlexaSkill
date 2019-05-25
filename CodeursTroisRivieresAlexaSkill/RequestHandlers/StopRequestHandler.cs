@@ -16,7 +16,8 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             await Task.CompletedTask;
 
-            SkillResponse response = ResponseBuilder.Tell("Au revoir.");
+            string speechText = "Au revoir";
+            SkillResponse response = ResponseBuilder.Tell(speechText);
             return new OkObjectResult(response);
         }
     }

@@ -16,7 +16,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             await Task.CompletedTask;
 
-            string speechText = "Bienvenue dans le skill Alexa de Codeurs Trois-Rivières, que puis-je faire pour vous?";
+            string speechText = "Bienvenue dans la skill Alexa de Codeurs Trois-Rivières, que puis-je faire pour vous?";
 
             SkillResponse response = ResponseBuilder.Ask(speechText, RequestHandlerHelper.GetDefaultReprompt());
             return new OkObjectResult(response);

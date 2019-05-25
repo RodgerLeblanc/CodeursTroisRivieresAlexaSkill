@@ -16,7 +16,9 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             await Task.CompletedTask;
 
-            SkillResponse response = ResponseBuilder.Ask("Annulation en cours.", RequestHandlerHelper.GetDefaultReprompt());
+            string speechText = "Vous pouvez demander : Quand est le prochain meetup, quel est le sujet de la prochaine rencontre, quel était le dernier événement. Que puis-je faire pour vous?";
+            SkillResponse response = ResponseBuilder.Ask(speechText, RequestHandlerHelper.GetDefaultReprompt());
+
             return new OkObjectResult(response);
         }
     }

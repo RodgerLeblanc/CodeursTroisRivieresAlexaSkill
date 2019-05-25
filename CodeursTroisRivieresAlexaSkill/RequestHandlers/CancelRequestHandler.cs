@@ -16,7 +16,8 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             await Task.CompletedTask;
 
-            SkillResponse response = ResponseBuilder.Tell("Annulation en cours.");
+            string speechText = "Annulation en cours";
+            SkillResponse response = ResponseBuilder.Tell(speechText);
             return new OkObjectResult(response);
         }
     }

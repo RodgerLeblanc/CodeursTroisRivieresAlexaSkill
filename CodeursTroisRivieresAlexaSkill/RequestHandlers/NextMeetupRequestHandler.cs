@@ -5,7 +5,6 @@ using CodeursTroisRivieresAlexaSkill.Models;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -37,24 +36,26 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
         {
             if (events == null || !events.Any(e => e != null))
             {
-                return ResponseBuilder.Ask(
-                    "Il n'y a présentement pas de prochain Meetup d'annoncé.",
-                    RequestHandlerHelper.GetDefaultReprompt());
+                string speechText = "Il n'y a présentement pas de prochain événement annoncé.";
+                return ResponseBuilder.Tell(speechText);
             }
 
             MeetupEvent nextEvent = events.First();
-            string speechResponse = GetSpeechResponse(nextEvent);
 
-            return ResponseBuilder.Ask(speechResponse, RequestHandlerHelper.GetDefaultReprompt());
+            IOutputSpeech speechResponse = GetSpeechResponse(nextEvent);
+
+            return ResponseBuilder.Tell(speechResponse);
         }
 
-        private string GetSpeechResponse(MeetupEvent nextEvent)
+        private IOutputSpeech GetSpeechResponse(MeetupEvent nextEvent)
         {
-            string formattedDate = nextEvent.LocalDate.ToString("dddd dd MMMM", CultureInfo.CreateSpecificCulture("fr-CA"));
+            string formattedDate = GetFormattedDate(nextEvent.LocalDate);
+            string formattedTime = GetFormattedTime(nextEvent.Time);
 
-            return $"Le prochain Meetup sera le {formattedDate} " +
-                $"à {nextEvent.LocalTime}, " +
-                $"le sujet sera {nextEvent.Name}.";
+            string speechText = "Le prochain événement aura lieu le {0} à {1}, le sujet est {2}.";
+            string text = string.Format(speechText, formattedDate, formattedTime, nextEvent.Name);
+
+            return new SsmlOutputSpeech { Ssml = $"<speak>{text}</speak>" };
         }
     }
 }

@@ -33,9 +33,11 @@ namespace CodeursTroisRivieresAlexaSkill
                 ISkillHandler skillHandler = new SkillHandler(skillRequest.Request);
                 return await skillHandler.GetResultAsync();
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
-                string speechText = "Peux-tu répéter ça, j'ai mal compris.";
+                log.LogError(e.Message);
+
+                string speechText = "Pouvez-vous répéter, j'ai mal compris.";
 
                 SkillResponse response = ResponseBuilder.Ask(speechText, RequestHandlerHelper.GetDefaultReprompt());
                 return new OkObjectResult(response);

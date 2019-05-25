@@ -59,10 +59,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
 
         public static Reprompt GetDefaultReprompt()
         {
-            string repromptText = "Vous pouvez demander : " +
-                "Quand est le prochain meetup, " +
-                "quel est le sujet du prochain meetup, " +
-                "quel était le dernier meetup.";
+            string repromptText = "Vous pouvez demander : Quand est le prochain meetup, quel est le sujet de la prochaine rencontre, quel était le dernier événement.";
 
             return new Reprompt(repromptText);
         }
