@@ -1,6 +1,7 @@
 using Alexa.NET;
 using Alexa.NET.Request;
 using Alexa.NET.Response;
+using Amazon.Lambda.Core;
 using CodeursTroisRivieresAlexaSkill.RequestHandlers;
 using CodeursTroisRivieresAlexaSkill.SkillHandlers;
 using Microsoft.AspNetCore.Http;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 
+[assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace CodeursTroisRivieresAlexaSkill
 {
     public static class CodeursTroisRivieres

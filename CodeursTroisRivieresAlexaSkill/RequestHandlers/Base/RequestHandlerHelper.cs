@@ -101,6 +101,9 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
                 return false;
             }
 
+#if DEBUG
+            return true;
+#else
             bool isTimestampValid = RequestVerification.RequestTimestampWithinTolerance(skillRequest);
             bool valid = await RequestVerification.Verify(signature, certUrl, body);
 
@@ -113,6 +116,7 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
             {
                 return true;
             }
+#endif
         }
     }
 }
