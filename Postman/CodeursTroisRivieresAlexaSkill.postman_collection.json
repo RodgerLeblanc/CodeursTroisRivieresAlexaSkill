@@ -1,0 +1,821 @@
+{
+	"info": {
+		"_postman_id": "c702a9aa-1512-498a-8834-897dd64e1b1c",
+		"name": "CodeursTroisRivieresAlexaSkill",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Meetup",
+			"item": [
+				{
+					"name": "Past Cafe et coding events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meetup.com/Cafe-et-coding/events?sign=true&photo-host=public&status=past&scroll=recent_past&page=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meetup",
+								"com"
+							],
+							"path": [
+								"Cafe-et-coding",
+								"events"
+							],
+							"query": [
+								{
+									"key": "sign",
+									"value": "true"
+								},
+								{
+									"key": "photo-host",
+									"value": "public"
+								},
+								{
+									"key": "status",
+									"value": "past"
+								},
+								{
+									"key": "scroll",
+									"value": "recent_past"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Past Cafe et coding events",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.meetup.com/Cafe-et-coding/events?sign=true&photo-host=public&status=past&scroll=recent_past&page=1",
+									"protocol": "https",
+									"host": [
+										"api",
+										"meetup",
+										"com"
+									],
+									"path": [
+										"Cafe-et-coding",
+										"events"
+									],
+									"query": [
+										{
+											"key": "sign",
+											"value": "true"
+										},
+										{
+											"key": "photo-host",
+											"value": "public"
+										},
+										{
+											"key": "status",
+											"value": "past"
+										},
+										{
+											"key": "scroll",
+											"value": "recent_past"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1189"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-Meetup-server",
+									"value": "ip-10-192-23-38"
+								},
+								{
+									"key": "X-Meetup-Request-ID",
+									"value": "2631a399-4d5a-476d-9d83-2ffb6f43dbc0"
+								},
+								{
+									"key": "X-OAuth-Scopes",
+									"value": "basic"
+								},
+								{
+									"key": "X-Accepted-OAuth-Scopes",
+									"value": "basic"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "30"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "29"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "10"
+								},
+								{
+									"key": "X-Total-Count",
+									"value": "42"
+								},
+								{
+									"key": "Link",
+									"value": "<https://api.meetup.com/Cafe-et-coding/events?scroll=before%3A2022-03-16T19%3A00%3A00.000-04%3A00&photo-host=public&page=1&sign=true&status=past>; rel=\"prev\""
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Mar 2022 06:55:45 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding,User-Agent,Accept-Language"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"created\": 1646934278000,\n        \"duration\": 7200000,\n        \"id\": \"284531280\",\n        \"name\": \"Café et coding\",\n        \"date_in_series_pattern\": false,\n        \"status\": \"past\",\n        \"time\": 1647471600000,\n        \"local_date\": \"2022-03-16\",\n        \"local_time\": \"19:00\",\n        \"updated\": 1647481314000,\n        \"utc_offset\": -14400000,\n        \"waitlist_count\": 0,\n        \"yes_rsvp_count\": 1,\n        \"venue\": {\n            \"id\": 27142487,\n            \"name\": \"Café Cognac\",\n            \"lat\": 46.360328674316406,\n            \"lon\": -72.57088470458984,\n            \"repinned\": true,\n            \"address_1\": \"736 Bd des Récollets\",\n            \"city\": \"Trois-Rivières\",\n            \"country\": \"ca\",\n            \"localized_country_name\": \"Canada\",\n            \"zip\": \"G8Z 3W2\",\n            \"state\": \"QC\"\n        },\n        \"is_online_event\": false,\n        \"group\": {\n            \"created\": 1541991399000,\n            \"name\": \"Café et coding\",\n            \"id\": 30508319,\n            \"join_mode\": \"open\",\n            \"lat\": 46.380001068115234,\n            \"lon\": -72.54000091552734,\n            \"urlname\": \"Cafe-et-coding\",\n            \"who\": \"Members\",\n            \"localized_location\": \"Trois-Rivières, QC\",\n            \"state\": \"QC\",\n            \"country\": \"ca\",\n            \"region\": \"en_US\",\n            \"timezone\": \"Canada/Eastern\"\n        },\n        \"link\": \"https://www.meetup.com/Cafe-et-coding/events/284531280/\",\n        \"description\": \"<p>\\\\*\\\\* INSCRIPTION SUR EVENTBRITE \\\\*\\\\*<br/><a href=\\\"https://www.eventbrite.com/e/cafe-et-coding-tickets-294741739477\\\" class=\\\"linkified\\\">https://www.eventbrite.com/e/cafe-et-coding-tickets-294741739477</a></p> <p>Café et coding est en mode **chill relax**! Viens passer une soirée magique où les fous rires sont nombreux.<br/>Voici ce qui s'est passé/jasé au cours des derniers Café et coding :<br/>\\\\- Achat de maison\\\\.<br/>\\\\- Télétravail : pour ou contre?<br/>\\\\- Magic\\\\.<br/>\\\\- Les profs d'informatique à l'université\\\\.<br/>\\\\- Xamarin natif\\\\.<br/>\\\\- Endettement moyen des canadiens\\\\.<br/>\\\\- Et bien plus encore\\\\!</p> <p>La prochaine rencontre a lieu au Café Cognac mercredi le 16 mars de 19h00 à 21h00, c'est gratis et ouvert à tous! (l'endroit est 18 ans et plus)<br/>Rendez-vous au :<br/>*Café Cognac*<br/>736 Boul. Des Récollets (au rond-point du CEGEP)</p> <p>Viens te joindre à une gang de passionnés de TI, on a hâte de te dire qu'est-ce qui nous a fait vibrer dans le monde des TI pendant ces derniers mois.</p> \",\n        \"how_to_find_us\": \"Informez-vous au comptoir où se trouve le groupe.\",\n        \"visibility\": \"public\",\n        \"member_pay_fee\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Past Codeurs Trois-Rivieres events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meetup.com/Codeurs-Trois-Rivieres/events?sign=true&photo-host=public&status=past&scroll=recent_past&page=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meetup",
+								"com"
+							],
+							"path": [
+								"Codeurs-Trois-Rivieres",
+								"events"
+							],
+							"query": [
+								{
+									"key": "sign",
+									"value": "true"
+								},
+								{
+									"key": "photo-host",
+									"value": "public"
+								},
+								{
+									"key": "status",
+									"value": "past"
+								},
+								{
+									"key": "scroll",
+									"value": "recent_past"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Past Codeurs Trois-Rivieres events",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.meetup.com/Codeurs-Trois-Rivieres/events?sign=true&photo-host=public&status=past&scroll=recent_past&page=1",
+									"protocol": "https",
+									"host": [
+										"api",
+										"meetup",
+										"com"
+									],
+									"path": [
+										"Codeurs-Trois-Rivieres",
+										"events"
+									],
+									"query": [
+										{
+											"key": "sign",
+											"value": "true"
+										},
+										{
+											"key": "photo-host",
+											"value": "public"
+										},
+										{
+											"key": "status",
+											"value": "past"
+										},
+										{
+											"key": "scroll",
+											"value": "recent_past"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1338"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-Meetup-server",
+									"value": "ip-10-192-23-240"
+								},
+								{
+									"key": "X-Meetup-Request-ID",
+									"value": "281fe704-3e83-40cd-964c-70d92ad15758"
+								},
+								{
+									"key": "X-OAuth-Scopes",
+									"value": "basic"
+								},
+								{
+									"key": "X-Accepted-OAuth-Scopes",
+									"value": "basic"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "30"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "28"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "5"
+								},
+								{
+									"key": "X-Total-Count",
+									"value": "12"
+								},
+								{
+									"key": "Link",
+									"value": "<https://api.meetup.com/Codeurs-Trois-Rivieres/events?scroll=before%3A2020-02-01T13%3A00%3A00.000-05%3A00&photo-host=public&page=1&sign=true&status=past>; rel=\"prev\""
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Mar 2022 06:55:50 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding,User-Agent,Accept-Language"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"created\": 1579361094000,\n        \"duration\": 10800000,\n        \"id\": \"268015912\",\n        \"name\": \"Atelier Xamarin.Forms : de zéro à héro\",\n        \"date_in_series_pattern\": false,\n        \"status\": \"past\",\n        \"time\": 1580580000000,\n        \"local_date\": \"2020-02-01\",\n        \"local_time\": \"13:00\",\n        \"updated\": 1580593597000,\n        \"utc_offset\": -18000000,\n        \"waitlist_count\": 0,\n        \"yes_rsvp_count\": 1,\n        \"venue\": {\n            \"id\": 26824236,\n            \"name\": \"Open Quartier Général\",\n            \"lat\": 46.34225082397461,\n            \"lon\": -72.54412841796875,\n            \"repinned\": true,\n            \"address_1\": \"425 rue des Forges\",\n            \"city\": \"Trois-Rivières\",\n            \"country\": \"ca\",\n            \"localized_country_name\": \"Canada\",\n            \"zip\": \"G9A 2H4\",\n            \"state\": \"qc\"\n        },\n        \"is_online_event\": false,\n        \"group\": {\n            \"created\": 1529036726000,\n            \"name\": \"Codeurs Trois-Rivières\",\n            \"id\": 28827253,\n            \"join_mode\": \"open\",\n            \"lat\": 46.380001068115234,\n            \"lon\": -72.54000091552734,\n            \"urlname\": \"Codeurs-Trois-Rivieres\",\n            \"who\": \"Members\",\n            \"localized_location\": \"Trois-Rivières, QC\",\n            \"state\": \"QC\",\n            \"country\": \"ca\",\n            \"region\": \"en_US\",\n            \"timezone\": \"Canada/Eastern\"\n        },\n        \"link\": \"https://www.meetup.com/Codeurs-Trois-Rivieres/events/268015912/\",\n        \"description\": \"<p>** Inscription obligatoire **<br/><a href=\\\"https://www.eventbrite.com/e/atelier-xamarinforms-de-zero-a-hero-tickets-90914035327\\\" class=\\\"linkified\\\">https://www.eventbrite.com/e/atelier-xamarinforms-de-zero-a-hero-tickets-90914035327</a></p> <p>Le développement mobile t'intéresse, mais tu ne sais pas par où commencer?</p> <p>Viens à notre atelier où on t'apprendra comment créer ta première application mobile Android et iOS en utilisant Xamarin.Forms.</p> <p>Déroulement de l'événement<br/>* 13h00 - 13h15 : Accueil<br/>* 13h15 - 13h45 : Présentation rapide de Xamarin.Forms<br/>* 13h45 - 16h00 : Atelier supervisé (apporte ton laptop)</p> <p>Dans cet atelier, tu apprendras à connaître la structure de base d'une application Xamarin.Forms en MVVM, comment aller chercher des données sur un serveur, afficher ces données dans l'application, comment naviguer d'une page à une autre et comment utiliser des fonctionnalités de ton appareil ou simulateur comme la géolocalisation (GPS).</p> <p>Prérequis<br/>* Laptop PC ou Mac<br/>* Visual Studio<br/>* Xamarin installé<br/>* Aucune expérience en développement d'application mobile n'est nécessaire</p> <p>Étapes pour installer Visual Studio et Xamarin<br/><a href=\\\"https://docs.microsoft.com/en-ca/xamarin/get-started/installation/index\\\" class=\\\"linkified\\\">https://docs.microsoft.com/en-ca/xamarin/get-started/installation/index</a></p> <p>L'événement est 100% gratuit, des grignotines et breuvages seront offerts gratuitement sur place.</p> <p>** Inscription obligatoire **<br/><a href=\\\"https://www.eventbrite.com/e/atelier-xamarinforms-de-zero-a-hero-tickets-90914035327\\\" class=\\\"linkified\\\">https://www.eventbrite.com/e/atelier-xamarinforms-de-zero-a-hero-tickets-90914035327</a></p> \",\n        \"how_to_find_us\": \"Coin Royale / Des Forges\",\n        \"visibility\": \"public\",\n        \"member_pay_fee\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Next Cafe et coding events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meetup.com/Cafe-et-coding/events?sign=true&photo-host=public&status=upcoming&scroll=next_upcoming&page=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meetup",
+								"com"
+							],
+							"path": [
+								"Cafe-et-coding",
+								"events"
+							],
+							"query": [
+								{
+									"key": "sign",
+									"value": "true"
+								},
+								{
+									"key": "photo-host",
+									"value": "public"
+								},
+								{
+									"key": "status",
+									"value": "upcoming"
+								},
+								{
+									"key": "scroll",
+									"value": "next_upcoming"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Next Cafe et coding events",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.meetup.com/Cafe-et-coding/events?sign=true&photo-host=public&status=upcoming&scroll=next_upcoming&page=1",
+									"protocol": "https",
+									"host": [
+										"api",
+										"meetup",
+										"com"
+									],
+									"path": [
+										"Cafe-et-coding",
+										"events"
+									],
+									"query": [
+										{
+											"key": "sign",
+											"value": "true"
+										},
+										{
+											"key": "photo-host",
+											"value": "public"
+										},
+										{
+											"key": "status",
+											"value": "upcoming"
+										},
+										{
+											"key": "scroll",
+											"value": "next_upcoming"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1177"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-Meetup-server",
+									"value": "ip-10-192-23-140"
+								},
+								{
+									"key": "X-Meetup-Request-ID",
+									"value": "6423f5fe-a3e2-4d7d-98f6-36ea65579208"
+								},
+								{
+									"key": "X-OAuth-Scopes",
+									"value": "basic"
+								},
+								{
+									"key": "X-Accepted-OAuth-Scopes",
+									"value": "basic"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "30"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "29"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "10"
+								},
+								{
+									"key": "X-Total-Count",
+									"value": "1"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Mar 2022 06:55:56 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding,User-Agent,Accept-Language"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"created\": 1648267106000,\n        \"duration\": 7200000,\n        \"id\": \"284861474\",\n        \"name\": \"Café et coding\",\n        \"date_in_series_pattern\": false,\n        \"status\": \"upcoming\",\n        \"time\": 1648681200000,\n        \"local_date\": \"2022-03-30\",\n        \"local_time\": \"19:00\",\n        \"updated\": 1648267122000,\n        \"utc_offset\": -14400000,\n        \"waitlist_count\": 0,\n        \"yes_rsvp_count\": 1,\n        \"venue\": {\n            \"id\": 27142487,\n            \"name\": \"Café Cognac\",\n            \"lat\": 46.360328674316406,\n            \"lon\": -72.57088470458984,\n            \"repinned\": true,\n            \"address_1\": \"736 Bd des Récollets\",\n            \"city\": \"Trois-Rivières\",\n            \"country\": \"ca\",\n            \"localized_country_name\": \"Canada\",\n            \"zip\": \"G8Z 3W2\",\n            \"state\": \"QC\"\n        },\n        \"is_online_event\": false,\n        \"group\": {\n            \"created\": 1541991399000,\n            \"name\": \"Café et coding\",\n            \"id\": 30508319,\n            \"join_mode\": \"open\",\n            \"lat\": 46.380001068115234,\n            \"lon\": -72.54000091552734,\n            \"urlname\": \"Cafe-et-coding\",\n            \"who\": \"Members\",\n            \"localized_location\": \"Trois-Rivières, QC\",\n            \"state\": \"QC\",\n            \"country\": \"ca\",\n            \"region\": \"en_US\",\n            \"timezone\": \"Canada/Eastern\"\n        },\n        \"link\": \"https://www.meetup.com/Cafe-et-coding/events/284861474/\",\n        \"description\": \"<p>\\\\*\\\\* INSCRIPTION SUR EVENTBRITE \\\\*\\\\*<br/><a href=\\\"https://www.eventbrite.com/e/cafe-et-coding-tickets-307411675597\\\" class=\\\"linkified\\\">https://www.eventbrite.com/e/cafe-et-coding-tickets-307411675597</a></p> <p>Café et coding est en mode **printemps**! Viens passer une soirée magique où les fous rires sont nombreux.</p> <p>Voici ce qui s'est passé/jasé au cours des derniers Café et coding :<br/>\\\\- MacBook Mini\\\\.<br/>\\\\- Télétravail : pour ou contre?<br/>\\\\- Cabane à sucre intelligente\\\\.<br/>\\\\- Nexus innovations\\\\.<br/>\\\\- App mobile flo\\\\.<br/>\\\\- Déneiger son cabanon\\\\.<br/>\\\\- Et bien plus encore\\\\!</p> <p>La prochaine rencontre a lieu au Café Cognac mercredi le 30 mars de 19h00 à 21h00, c'est gratis et ouvert à tous! (l'endroit est 18 ans et plus)<br/>Rendez-vous au :<br/>*Café Cognac*<br/>736 Boul. Des Récollets (au rond-point du CEGEP)</p> <p>Viens te joindre à une gang de passionnés de TI, on a hâte de te dire qu'est-ce qui nous a fait vibrer dans le monde des TI pendant ces derniers mois.</p> \",\n        \"how_to_find_us\": \"Informez-vous au comptoir où se trouve le groupe.\",\n        \"visibility\": \"public\",\n        \"member_pay_fee\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Next Codeurs Trois-Rivieres events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meetup.com/Codeurs-Trois-Rivieres/events?sign=true&photo-host=public&status=upcoming&scroll=next_upcoming&page=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meetup",
+								"com"
+							],
+							"path": [
+								"Codeurs-Trois-Rivieres",
+								"events"
+							],
+							"query": [
+								{
+									"key": "sign",
+									"value": "true"
+								},
+								{
+									"key": "photo-host",
+									"value": "public"
+								},
+								{
+									"key": "status",
+									"value": "upcoming"
+								},
+								{
+									"key": "scroll",
+									"value": "next_upcoming"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Next Codeurs Trois-Rivieres events",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.meetup.com/Codeurs-Trois-Rivieres/events?sign=true&photo-host=public&status=upcoming&scroll=next_upcoming&page=1",
+									"protocol": "https",
+									"host": [
+										"api",
+										"meetup",
+										"com"
+									],
+									"path": [
+										"Codeurs-Trois-Rivieres",
+										"events"
+									],
+									"query": [
+										{
+											"key": "sign",
+											"value": "true"
+										},
+										{
+											"key": "photo-host",
+											"value": "public"
+										},
+										{
+											"key": "status",
+											"value": "upcoming"
+										},
+										{
+											"key": "scroll",
+											"value": "next_upcoming"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-Meetup-server",
+									"value": "ip-10-192-22-92"
+								},
+								{
+									"key": "X-Meetup-Request-ID",
+									"value": "93a1ac94-c5a4-42e8-8f1d-a077090cf38b"
+								},
+								{
+									"key": "X-OAuth-Scopes",
+									"value": "basic"
+								},
+								{
+									"key": "X-Accepted-OAuth-Scopes",
+									"value": "basic"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "30"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "28"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "6"
+								},
+								{
+									"key": "X-Total-Count",
+									"value": "0"
+								},
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Mar 2022 06:56:00 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "User-Agent,Accept-Language"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Alexa",
+			"item": [
+				{
+					"name": "LastMeetupIntent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "SignatureCertChainUrl",
+								"value": "http://google.ca",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "test",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"version\": \"1.0\",\r\n\t\"request\": {\r\n\t\t\"type\": \"IntentRequest\",\r\n\t\t\"requestId\": \"amzn1.echo-api.request.ab2e60aa-80da-4361-9a84-d59d64ba7736\",\r\n\t\t\"locale\": \"fr-CA\",\r\n\t\t\"timestamp\": \"2022-03-26T05:45:37Z\",\r\n\t\t\"intent\": {\r\n\t\t\t\"name\": \"LastMeetupIntent\",\r\n\t\t\t\"confirmationStatus\": \"NONE\"\r\n\t\t}\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/CodeursTroisRivieres",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"CodeursTroisRivieres"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "LastMeetupIntent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "SignatureCertChainUrl",
+										"value": "http://google.ca",
+										"type": "text"
+									},
+									{
+										"key": "Signature",
+										"value": "test",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"version\": \"1.0\",\r\n\t\"request\": {\r\n\t\t\"type\": \"IntentRequest\",\r\n\t\t\"requestId\": \"amzn1.echo-api.request.ab2e60aa-80da-4361-9a84-d59d64ba7736\",\r\n\t\t\"locale\": \"fr-CA\",\r\n\t\t\"timestamp\": \"2022-03-26T05:45:37Z\",\r\n\t\t\"intent\": {\r\n\t\t\t\"name\": \"LastMeetupIntent\",\r\n\t\t\t\"confirmationStatus\": \"NONE\"\r\n\t\t}\r\n\t}\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:7071/api/CodeursTroisRivieres",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7071",
+									"path": [
+										"api",
+										"CodeursTroisRivieres"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "229"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Mar 2022 06:55:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"SSML\",\n            \"ssml\": \"<speak>Le dernier événement était Café et coding et a eu lieu le <say-as interpret-as=\\\"date\\\">????0316</say-as> à 19:00.</speak>\"\n        },\n        \"shouldEndSession\": true\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "NextMeetupIntent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "SignatureCertChainUrl",
+								"value": "http://google.ca",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "test",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"version\": \"1.0\",\r\n\t\"request\": {\r\n\t\t\"type\": \"IntentRequest\",\r\n\t\t\"requestId\": \"amzn1.echo-api.request.ab2e60aa-80da-4361-9a84-d59d64ba7736\",\r\n\t\t\"locale\": \"fr-CA\",\r\n\t\t\"timestamp\": \"2022-03-26T05:45:37Z\",\r\n\t\t\"intent\": {\r\n\t\t\t\"name\": \"NextMeetupIntent\",\r\n\t\t\t\"confirmationStatus\": \"NONE\"\r\n\t\t}\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/CodeursTroisRivieres",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"CodeursTroisRivieres"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "NextMeetupIntent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "SignatureCertChainUrl",
+										"value": "http://google.ca",
+										"type": "text"
+									},
+									{
+										"key": "Signature",
+										"value": "test",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"version\": \"1.0\",\r\n\t\"request\": {\r\n\t\t\"type\": \"IntentRequest\",\r\n\t\t\"requestId\": \"amzn1.echo-api.request.ab2e60aa-80da-4361-9a84-d59d64ba7736\",\r\n\t\t\"locale\": \"fr-CA\",\r\n\t\t\"timestamp\": \"2022-03-26T05:45:37Z\",\r\n\t\t\"intent\": {\r\n\t\t\t\"name\": \"NextMeetupIntent\",\r\n\t\t\t\"confirmationStatus\": \"NONE\"\r\n\t\t}\r\n\t}\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:7071/api/CodeursTroisRivieres",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7071",
+									"path": [
+										"api",
+										"CodeursTroisRivieres"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "227"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Mar 2022 06:55:39 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"version\": \"1.0\",\n    \"response\": {\n        \"outputSpeech\": {\n            \"type\": \"SSML\",\n            \"ssml\": \"<speak>Le prochain événement est Café et coding et aura lieu le <say-as interpret-as=\\\"date\\\">????0330</say-as> à 19:00.</speak>\"\n        },\n        \"shouldEndSession\": true\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
