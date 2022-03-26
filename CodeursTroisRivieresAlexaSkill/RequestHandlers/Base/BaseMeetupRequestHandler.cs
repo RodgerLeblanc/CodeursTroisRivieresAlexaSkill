@@ -25,9 +25,11 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
             return request;
         }
 
-        protected string GetFormattedDate(DateTimeOffset localDate)
+        protected string GetFormattedDate(long msSinceEpoch)
         {
-            return $"<say-as interpret-as=\"date\">{localDate.ToString("????MMdd")}</say-as>";
+            DateTime date = GetEasternTimeFromEpoch(msSinceEpoch);
+            string dateFormat = date.Year == DateTime.Now.Year ? "????MMdd" : "yyyyMMdd";
+            return $"<say-as interpret-as=\"date\">{date.ToString(dateFormat)}</say-as>";
         }
 
         protected string GetFormattedTime(long msSinceEpoch)

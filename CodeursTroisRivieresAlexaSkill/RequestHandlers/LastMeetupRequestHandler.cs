@@ -4,6 +4,7 @@ using Alexa.NET.Response;
 using CodeursTroisRivieresAlexaSkill.Models;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,7 +13,11 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
 {
     public class LastMeetupRequestHandler : BaseMeetupRequestHandler
     {
-        private const string _resource = "Codeurs-Trois-Rivieres/events";
+        private readonly string[] _resources = new string[2] 
+        {
+            "Cafe-et-coding/events",
+            "Codeurs-Trois-Rivieres/events"
+        };
 
         public LastMeetupRequestHandler(IntentRequest request) : base(request)
         {
@@ -20,13 +25,20 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
 
         public override async Task<IActionResult> GetResultAsync()
         {
-            var request = GetRequest(_resource);
+            List<MeetupEvent> events = new();
 
-            request.AddQueryParameter("status", "past");
-            request.AddQueryParameter("scroll", "recent_past");
-            request.AddQueryParameter("page", "1");
+            foreach (var resource in _resources)
+            {
+                var request = GetRequest(resource);
 
-            List<MeetupEvent> events = await Client.GetAsync<List<MeetupEvent>>(request);
+                request.AddQueryParameter("status", "past");
+                request.AddQueryParameter("scroll", "recent_past");
+                request.AddQueryParameter("page", "1");
+
+                var resourceEvents = await Client.GetAsync<List<MeetupEvent>>(request);
+
+                events.AddRange(resourceEvents);
+            }
 
             SkillResponse response = GetResponseFromEvents(events);
             return new OkObjectResult(response);
@@ -40,7 +52,9 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
                 return ResponseBuilder.Tell(speechText);
             }
 
-            MeetupEvent lastEvent = events.First();
+            MeetupEvent lastEvent = events
+                .OrderByDescending(e => e.Time)
+                .First();
 
             IOutputSpeech speechResponse = GetSpeechResponse(lastEvent);
 
@@ -49,10 +63,10 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
 
         private IOutputSpeech GetSpeechResponse(MeetupEvent lastEvent)
         {
-            string formattedDate = GetFormattedDate(lastEvent.LocalDate);
+            string formattedDate = GetFormattedDate(lastEvent.Time);
             string formattedTime = GetFormattedTime(lastEvent.Time);
 
-            string speechText = "Le dernier événement a eu lieu le {0} à {1}, le sujet était {2}.";
+            string speechText = "Le dernier événement était {2} et a eu lieu le {0} à {1}.";
             string text = string.Format(speechText, formattedDate, formattedTime, lastEvent.Name);
 
             return new SsmlOutputSpeech { Ssml = $"<speak>{text}</speak>" };
