@@ -13,11 +13,11 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
             Client = new RestClient(_baseUrl);
         }
 
-        protected IRestClient Client { get; }
+        protected RestClient Client { get; }
 
-        protected IRestRequest GetRequest(string resource)
+        protected RestRequest GetRequest(string resource)
         {
-            var request = new RestRequest(resource, DataFormat.Json);
+            var request = new RestRequest(resource);
 
             request.AddQueryParameter("sign", "true");
             request.AddQueryParameter("photo-host", "public");
