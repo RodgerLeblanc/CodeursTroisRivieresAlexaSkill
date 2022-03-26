@@ -12,7 +12,11 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
 {
     public class NextMeetupRequestHandler : BaseMeetupRequestHandler
     {
-        private const string _resource = "Codeurs-Trois-Rivieres/events";
+        private readonly string[] _resources = new string[2]
+        {
+            "Cafe-et-coding/events",
+            "Codeurs-Trois-Rivieres/events"
+        };
 
         public NextMeetupRequestHandler(IntentRequest request) : base(request)
         {
@@ -20,13 +24,20 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
 
         public override async Task<IActionResult> GetResultAsync()
         {
-            var request = GetRequest(_resource);
+            List<MeetupEvent> events = new();
 
-            request.AddQueryParameter("status", "upcoming");
-            request.AddQueryParameter("scroll", "next_upcoming");
-            request.AddQueryParameter("page", "1");
+            foreach (var resource in _resources)
+            {
+                var request = GetRequest(resource);
 
-            List<MeetupEvent> events = await Client.GetAsync<List<MeetupEvent>>(request);
+                request.AddQueryParameter("status", "upcoming");
+                request.AddQueryParameter("scroll", "next_upcoming");
+                request.AddQueryParameter("page", "1");
+
+                var resourceEvents = await Client.GetAsync<List<MeetupEvent>>(request);
+
+                events.AddRange(resourceEvents);
+            }
 
             SkillResponse response = GetResponseFromEvents(events);
             return new OkObjectResult(response);
@@ -40,7 +51,9 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
                 return ResponseBuilder.Tell(speechText);
             }
 
-            MeetupEvent nextEvent = events.First();
+            MeetupEvent nextEvent = events
+                .OrderBy(e => e.Time)
+                .First();
 
             IOutputSpeech speechResponse = GetSpeechResponse(nextEvent);
 
@@ -49,10 +62,10 @@ namespace CodeursTroisRivieresAlexaSkill.RequestHandlers
 
         private IOutputSpeech GetSpeechResponse(MeetupEvent nextEvent)
         {
-            string formattedDate = GetFormattedDate(nextEvent.LocalDate);
+            string formattedDate = GetFormattedDate(nextEvent.Time);
             string formattedTime = GetFormattedTime(nextEvent.Time);
 
-            string speechText = "Le prochain événement aura lieu le {0} à {1}, le sujet est {2}.";
+            string speechText = "Le prochain événement est {2} et aura lieu le {0} à {1}.";
             string text = string.Format(speechText, formattedDate, formattedTime, nextEvent.Name);
 
             return new SsmlOutputSpeech { Ssml = $"<speak>{text}</speak>" };
